@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block main%}
+<div class="container">
+    <div class="col-md-6 offset-3">
+        <div class="card m-3" >
+            <form method="POST" action="{% url 'add_emp' %}">
+                {% csrf_token %}
+                {% for message in messages %}
+                <div class="m-3">
+                    <label for="message" class="form-label">{{message}}</label>
+                  </div>
+                {% endfor %}
+                  <div class="m-3">
+                    <label for="id" class="form-label">Employee ID</label>
+                    <input type="number" class="form-control" id="id" name="empid">
+                  </div>
+                  <div class="m-3">
+                    <label for="name" class="form-label">Employee Name</label>
+                    <input type="text" class="form-control" id="name" name="empname">
+                  </div>
+                  <div class="m-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="empemail">
+                  </div>
+                  <div class="m-3">
+                    <label for="dept" class="form-label">Department</label>
+                    <input type="text" class="form-control" id="dept" name="empdept">
+                  </div>
+                  <div class="m-3">
+                    <label for="address" class="form-label">Address</label>
+                      <textarea  class="form-control" id="address" name="empaddress"></textarea>
+                  </div>
+
+                  <div class="m-3 text-center">
+                      <button type="submit" class="btn btn-primary">Register</button>
+                  </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

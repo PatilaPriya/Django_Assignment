@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block main %}
+<div class="container">
+    <div class="col-md-6 offset-3">
+        <div class="card m-3">
+            <form action="{% url 'login' %}" method="POST" >
+                {% csrf_token %}
+                {% for message in messages %}
+                <div class="m-3">
+                    <label class="form-label" name="message">{{message}}</label>
+                  </div>
+                {% endfor %}
+                  <div class="m-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="username" placeholder="Enter Employee name" name="user">
+                  </div>
+                  <div class="m-3">
+                    <label for="password" class="form-label" name="password">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Enter your employye ID" name="password">
+                  </div>
+
+                <p class="m-3">New Employee?<a href="/emp/add_emp/">Register</a></p>
+                  <div class="m-3 text-center">
+                      <button type="submit" class="btn btn-primary">Login</button>
+                  </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock%}

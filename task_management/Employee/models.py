@@ -1,5 +1,4 @@
 from django.db import models
-from tasks.models import task
 
 # Create your models here.
 class employee(models.Model):
@@ -7,7 +6,7 @@ class employee(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
     dept = models.CharField(max_length=20)
-    #task_id = models.IntegerField()
-    task_id = models.ForeignKey(task, on_delete=models.CASCADE)
     address = models.TextField()
 
+    def __str__(self):
+        return str(self.emp_id)

@@ -17,15 +17,16 @@
           <a class="nav-link" href="/emp/">Employees</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link" href="/tasks/actions/">
+          <a class="nav-link" href="/tasks/actions/login/">
             ToDoList
           </a>
-<!--          <ul class="dropdown-menu">-->
-<!--            <li><a class="dropdown-item" href="">CREATE</a></li>-->
-<!--            <li><a class="dropdown-item" href="#">DELETE</a></li>-->
-<!--            <li><a class="dropdown-item" href="#">UPDATE</a></li>-->
-<!--          </ul>-->
         </li>
+        <li>
+          {% if request.user.is_authenticated %}
+          <a class="nav-link" href="/tasks/actions/logout/">
+            Logout
+          </a>
+          {% endif %}
       </ul>
     </div>
   </div>
